@@ -1,9 +1,25 @@
 <div class="container">
   <h1>Lista de Compras</h1>
 
-  <form class="add-item-form">
-    <input type="text" id="item" placeholder="Digite o nome do item /">
-    <button type="submit">Adicionar</button>
+  <form #frm="ngForm" class="add-item-form" (ngSubmit)="adicionarItem()">
+    <input
+      type="text"
+      id="item"
+      name="item"
+      [(ngModel)]="item"
+      placeholder="Digite o nome do item"
+      required
+    />
+
+    <button type="submit">
+      {{ editando ? 'Salvar' : 'Adicionar' }}
+    </button>
+    <button type="button" (click)="limparLista()">
+      Limpar Lista
+    </button>
+    <button *ngIf="editando" type="button" (click)="cancelarEdicao()">
+      Cancelar
+    </button>
   </form>
 
   <table>
@@ -11,20 +27,37 @@
     <tr>
       <th>#</th>
       <th>Item</th>
-      <th></th>
+      <th>Comprado</th>
+      <th>Ações</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>Arroz</td>
-      <td><input type="checkbox"/></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Maçã</td>
-      <td><input type="checkbox"/></td>
-    </tr>
+      @for (elemento of lista; track elemento.id) {
+        <tr>
+          <td>{{ elemento.id }}</td>
+          <td>
+            <span [ngClass]="{ 'item-riscado': elemento.comprado }">
+              {{ elemento.nome }}
+            </span>
+          </td>
+          <td style="text-align: center;">
+            <input
+              type="checkbox"
+              (click)="riscarItem(elemento)"
+              [checked]="elemento.comprado"
+            />
+          </td>
+          <td>
+            <button type="button" (click)="editarItem(elemento)">
+              Editar
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4">Nenhum item adicionado</td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

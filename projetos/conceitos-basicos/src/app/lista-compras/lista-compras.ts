@@ -17,12 +17,19 @@ export class ListaCompras {
   editando: boolean = false;
   itemEditando: ItemLista | null = null;
 
+  atualizarItemNaLista(){
+    let itemOriginal = this.lista.find(item => item.id === this.itemEditando?.id);
+    if (itemOriginal) {
+      itemOriginal.nome = this.item;
+    }
+  }
+
   adicionarItem() {
     if (this.editando && this.itemEditando) {
-      this.itemEditando.nome = this.item;
+      this.atualizarItemNaLista();
       this.cancelarEdicao();
     } else {
-      const itemLista = new ItemLista();
+      let itemLista = new ItemLista();
       itemLista.nome = this.item;
       itemLista.id = this.lista.length + 1;
       this.lista.push(itemLista);
@@ -32,7 +39,7 @@ export class ListaCompras {
   }
 
   editarItem(itemLista: ItemLista) {
-    itemLista.nome = this.item ?? '';
+    this.item = itemLista.nome ?? '';
     this.editando = true;
     this.itemEditando = itemLista;
   }

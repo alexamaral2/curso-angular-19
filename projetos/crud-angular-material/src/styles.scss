@@ -1,8 +1,7 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mt-20 {
   margin-top: 20px;
@@ -16,14 +15,10 @@ html, body {
   margin-top: 60px;
 }
 
-.ml-5 {
-  margin-left: 5%;
+.ml-5{
+  margin-left: 5px;
 }
 
-.full-width {
+.full-width{
   width: 100%;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }

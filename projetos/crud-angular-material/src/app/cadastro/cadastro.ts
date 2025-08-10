@@ -11,6 +11,10 @@ import {ClienteService} from '../cliente.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {BrasilapiService} from '../brasilapi.service';
+import {Estado, Municipio} from '../brasil.models';
+import {MatSelectChange, MatSelectModule} from '@angular/material/select';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,6 +27,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     NgxMaskDirective,
+    MatSelectModule,
+    CommonModule
   ], providers: [
     provideNgxMask()
   ],
@@ -33,9 +39,12 @@ export class Cadastro implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
   snack: MatSnackBar = inject(MatSnackBar);
+  estados: Estado[] = [];
+  municipios: Municipio[] = [];
 
   constructor(
     private service: ClienteService,
+    private brasilApiService: BrasilapiService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -49,9 +58,30 @@ export class Cadastro implements OnInit {
         if (clienteEncontrado) {
           this.atualizando = true;
           this.cliente = clienteEncontrado;
+          if(this.cliente.uf){
+            const event  = { value: this.cliente.uf };
+            this.carregarMunicipios(event as MatSelectChange);
+          }
         }
       }
     });
+
+    this.carregarUFs();
+  }
+
+  carregarUFs(){
+    this.brasilApiService.listarUFS().subscribe({
+      next: listaEstados => this.estados = listaEstados,
+      error: error => console.log('Ocorreu um erro: ', error)
+    })
+  }
+
+  carregarMunicipios(event: MatSelectChange){
+    const ufSelecionada = event.value;
+    this.brasilApiService.listarMunicipios(ufSelecionada).subscribe({
+      next: listaMunicipios => this.municipios = listaMunicipios,
+      error: error => console.log('Ocorreu um erro: ', error)
+    })
   }
 
   salvar(){

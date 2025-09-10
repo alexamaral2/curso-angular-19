@@ -4,6 +4,21 @@
       "id": "2",
       "nome": "Shopping Atualizado",
       "descricao": "Lugares para fazer compras"
+    },
+    {
+      "id": "351f",
+      "nome": "Praias",
+      "descricao": "Lugares para tomar banho com a familia."
+    },
+    {
+      "id": "2661",
+      "nome": "teste",
+      "descricao": "teste"
+    },
+    {
+      "id": "db5b",
+      "nome": "teste2",
+      "descricao": "teste2"
     }
   ]
 }

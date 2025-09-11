@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LugaresRoutingModule } from './lugares-routing-module';
 import { Lugar } from './lugar/lugar';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { Lugar } from './lugar/lugar';
   ],
   imports: [
     CommonModule,
-    LugaresRoutingModule
+    LugaresRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LugaresModule { }

@@ -30,6 +30,6 @@ export class LugarComponent implements OnInit {
   }
 
   salvar(){
-    console.log("valores: " + this.camposForm.value);
+    console.log("valores: ", this.camposForm.value);
   }
 }

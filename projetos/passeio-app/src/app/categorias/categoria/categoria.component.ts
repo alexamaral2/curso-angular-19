@@ -6,10 +6,10 @@ import {CategoriaService} from '../categoria.service';
 @Component({
   selector: 'app-categoria',
   standalone: false,
-  templateUrl: './categoria.html',
-  styleUrl: './categoria.scss'
+  templateUrl: './categoria.component.html',
+  styleUrl: './categoria.component.scss'
 })
-export class Categoria {
+export class CategoriaComponent {
   camposForm: FormGroup;
 
   constructor(private service: CategoriaService) {

@@ -1,9 +1,9 @@
 <div class="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg mt-6">
-  <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Novo Lugar</h2>
+  <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Novo LugarComponent</h2>
 
   <form id="lugarForm" [formGroup]="camposForm" (ngSubmit)="salvar()">
     <div class="mb-4">
-      <label for="nome" class="block text-gray-600 font-medium mb-2">Nome do Lugar</label>
+      <label for="nome" class="block text-gray-600 font-medium mb-2">Nome do LugarComponent</label>
       <input type="text"
              id="nome"
              name="nome"
@@ -14,7 +14,18 @@
       />
     </div>
     <div class="mb-4">
-      <label for="categoria" class="block text-gray-600 font-medium mb-2">Categoria</label>
+      <label for="nome" class="block text-gray-600 font-medium mb-2">CategoriaComponent</label>
+      <select
+        id="categoria"
+        name="categoria"
+        formControlName="categoria"
+        class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
+      >
+        <option [value]="">Selecione uma categoria</option>
+        <option *ngFor="let cat of categorias" [value]="cat.nome">
+          {{ cat.nome }}
+        </option>
+      </select>
     </div>
     <div class="mb-4">
       <label for="localizacao" class="block text-gray-600 font-medium mb-2">Localização</label>
@@ -43,7 +54,7 @@
     </div>
     <button type="submit"
             class="w-full bg-blue-600 text-white font-semibold p-3 rounded shadow hover:bg-blue-700">
-      Cadastrar Lugar
+      Cadastrar LugarComponent
     </button>
   </form>
 </div>

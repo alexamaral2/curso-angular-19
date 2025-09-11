@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TemplateRoutingModule } from './template-routing-module';
-import { Layout } from './layout/layout';
-import { CategoriasModule } from '../categorias/categorias-module';
+import { TemplateRoutingModule } from './template-routing.module';
+import { LayoutComponent } from './layout/layout.component';
+import { CategoriasModule } from '../categorias/categorias.module';
 
 
 @NgModule({
   declarations: [
-    Layout
+    LayoutComponent
   ],
   imports: [
     CommonModule,

@@ -14,7 +14,7 @@ export class CategoriaComponent {
 
   constructor(private service: CategoriaService) {
     this.camposForm = new FormGroup({
-      nome: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      nome: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.required]),
     });
   }

@@ -1,5 +1,5 @@
 <div class="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg mt-6">
-  <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Nova Categoria</h2>
+  <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Novo Lugar</h2>
   <hr />
   <form id="lugarForm" [formGroup]="camposForm" (ngSubmit)="salvar()">
     <div class="mb-4">
@@ -12,9 +12,12 @@
              class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
              required
       />
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('nome')">
+                Campo Obrigatório
+      </span>
     </div>
     <div class="mb-4">
-      <label for="nome" class="block text-gray-600 font-medium mb-2">Categoria</label>
+      <label for="categoria" class="block text-gray-600 font-medium mb-2">Categoria</label>
       <select
         id="categoria"
         name="categoria"
@@ -26,6 +29,9 @@
           {{ cat.nome }}
         </option>
       </select>
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('categoria')">
+                Campo Obrigatório
+      </span>
     </div>
     <div class="mb-4">
       <label for="localizacao" class="block text-gray-600 font-medium mb-2">Localização</label>
@@ -37,6 +43,9 @@
              class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
              required
       />
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('localizacao')">
+                Campo Obrigatório
+      </span>
     </div>
     <div class="mb-4">
       <label for="urlFoto" class="block text-gray-600 font-medium mb-2">Foto</label>
@@ -48,6 +57,9 @@
              class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
              required
       />
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('urlFoto')">
+                Campo Obrigatório
+      </span>
     </div>
     <div class="mb-4">
       <label for="avaliacao" class="block text-gray-600 font-medium mb-2">Avaliação</label>
@@ -64,6 +76,9 @@
         <option [value]="4">4 - Muito Bom</option>
         <option [value]="5">5 - Excelente</option>
       </select>
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('avaliacao')">
+                Campo Obrigatório
+      </span>
     </div>
     <button type="submit"
             class="w-full bg-blue-600 text-white font-semibold p-3 rounded shadow hover:bg-blue-700">

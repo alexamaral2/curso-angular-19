@@ -2,28 +2,49 @@
   "categorias": [
     {
       "id": "2",
-      "nome": "Shopping Atualizado",
-      "descricao": "Lugares para fazer compras"
+      "nome": "Shoppings",
+      "descricao": "Lugares para fazer compras e passear"
     },
     {
-      "id": "351f",
+      "id": "1ed9",
       "nome": "Praias",
-      "descricao": "Lugares para tomar banho com a familia."
+      "descricao": "Lugares para tomar banho com a familia"
     },
     {
-      "id": "2661",
-      "nome": "teste",
+      "id": "31ca",
+      "nome": "Bares",
       "descricao": "teste"
     },
     {
-      "id": "db5b",
-      "nome": "teste2",
-      "descricao": "teste2"
+      "id": "3dd7",
+      "nome": "Parques",
+      "descricao": "teste 2"
+    }
+  ],
+  "lugares": [
+    {
+      "id": "6f95",
+      "nome": "Praia do zé",
+      "categoria": "Praias",
+      "localizacao": "Rio de Janeiro",
+      "urlFoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX6BKTqW4FCh278BcBxivD1kwAUfdxDxzqRw&s",
+      "avaliacao": "4"
     },
     {
-      "id": "3506",
-      "nome": "Teste3",
-      "descricao": "TestandoDesc3"
+      "id": "04e9",
+      "nome": "Praia do Espelho",
+      "categoria": "Praias",
+      "localizacao": "Bahia",
+      "urlFoto": "https://www.melhoresdestinos.com.br/wp-content/uploads/2019/01/melhores-praias-do-brasil-praia-do-espelho-820x547.jpg",
+      "avaliacao": "5"
+    },
+    {
+      "id": "5057",
+      "nome": "Parque Ibirapuera",
+      "categoria": "Parques",
+      "localizacao": "São Paulo",
+      "urlFoto": "https://parqueibirapuera.org/wp/wp-content/uploads/2016/03/RN-Ibirapuera-Aerea-20150121-5-1-foto-destacada-resized.jpg",
+      "avaliacao": "4"
     }
   ]
 }
